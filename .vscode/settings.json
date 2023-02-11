@@ -1,6 +1,10 @@
 {
-    "files.autoSave": "afterDelay",
-    "editor.codeActionsOnSave": {
-    
-    }
+    "git.ignoreLimitWarning": true,
+    "cSpell.words": [
+        "การทดสอบ",
+        "คลังข้อสอบ",
+        "คะแนน",
+        "รายวิชา",
+        "วิเคราะห์ข้อมูล"
+    ]
 }
