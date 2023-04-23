@@ -1,0 +1,360 @@
+###http://127.0.0.1:8085/
+POST  http://127.0.0.1:8085/api/v2/forms/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "EMAIL":"63015144@kmitl.ac.th",
+        "FORM_NAME":"แบบทดสอบ",
+        "QUESTION_TITLE":"โครงสร้างของระบบเครือข่ายทั้งหมดมีกี่แบบ",
+        "QUESTION_CHOICES":["ก. 2แบบ","ข. 3แบบ","ค. 4แบบ","ง. 5แบบ"],
+      
+}
+
+###http://127.0.0.1:8085/
+GET http://127.0.0.1:8085/api/v2/forms/ HTTP/1.1
+
+### login 
+POST http://localhost:8085/api/v2/authen/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "63015007",
+    "password" : "63015007"
+}
+ 
+ 
+
+### classes อาจารย์สร้าง class 
+POST http://51.79.251.237:8085/api/v2/course/classes HTTP/1.1
+Content-Type: application/json
+
+{
+    "class_id": 4,
+    "class_name": "โครงการ ครั่งที่ 4",
+    "teacher_id":1
+}
+
+
+
+
+
+
+### student_id เพิ่มรายชื่อนักศักษา
+POST http://localhost:8085/api/v2/course/students HTTP/1.1
+Content-Type: application/json
+
+{
+"students2": [
+{
+"student_id": 63015086,
+"student_name": "นาย ธีรนัย ศิลารักษ์"
+},
+{
+"student_id": 63015091,
+"student_name": "นาย นนทพัทธ์ หนองคาย์"
+},
+{
+"student_id": 63015097,
+"student_name": "นาย นวัต การสำเริง"
+},
+{
+"student_id": 63015101,
+"student_name": "นางสาว นิรมล อัศวสัย"
+},
+{
+"student_id": 63015098,
+"student_name": "นางสาว นันฑิกาณต์ แพร่ศิริรักษ์"
+},
+{
+"student_id": 63015108,
+"student_name": "นาย ปริทัศน์ วิลัยขำ"
+},
+{
+"student_id": 63015117,
+"student_name": "นาย พชรพล พรมแพง"
+},
+{
+"student_id": 63015121,
+"student_name": "นาย พศิน จันทรทัน"
+},
+{
+"student_id": 63015123,
+"student_name": "นาย พันธวัช ตันอนุกูล"
+}
+]
+}
+
+
+
+### ClassEnrollment เพิ่มรายชื่อนักศักษา ใน Class arry
+POST http://localhost:8085/api/v2/course/classenrollments HTTP/1.1
+Content-Type: application/json
+
+{
+"classes":[
+{
+    "class_id": 1,
+"student_id": 63015108,
+"student_name": "นาย ปริทัศน์ วิลัยขำ"
+},
+{
+"class_id": 1,
+"student_id": 63015117,
+"student_name": "นาย พชรพล พรมแพง"
+},
+{
+    "class_id": 1,
+"student_id": 63015121,
+"student_name": "นาย พศิน จันทรทัน"
+}
+]
+}
+
+
+
+### coursess
+GET  http://localhost:8085/api/v2/course/course/2 HTTP/1.1
+### coursess
+GET  http://localhost:8085/api/v2/course/coursei/63015086 HTTP/1.1
+ 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+### แสดงรายชื่อทังหมด  student
+ GET http://localhost:8085/api/v2/course/students HTTP/1.1
+
+### แสดงรายชื่อ id student
+ GET http://localhost:8085/api/v2/course/student/63015086 HTTP/1.1
+
+### add student
+POST http://localhost:8085/api/v2/course/student HTTP/1.1
+Content-Type: application/json
+
+{
+    "student_id": 63015144,
+    "student_name": "นาย รฐนนท์ แสงรุ่งสว่าง"
+  
+}
+
+### delete รายชื่อ id  student
+DELETE  http://localhost:8085/api/v2/course/student/63015144 HTTP/1.1
+
+
+
+
+
+### แสดงรายชื่อ  instructor all
+ GET http://localhost:8085/api/v2/course/instructor HTTP/1.1
+
+### แสดงรายชื่อ id  instructor
+GET http://51.79.251.237:8085/api/v2/course/instructor/1 HTTP/1.1
+
+### add instructor
+POST http://localhost:8085/api/v2/course/instructor HTTP/1.1
+Content-Type: application/json
+
+{
+    "teacher_id": 2,
+    "teacher_name": "ผศ. ดร. ชมพูนุท จินจาคาม"
+}
+
+### delete รายชื่อ id  instructor
+DELETE  http://localhost:8085/api/v2/course/instructor/2 HTTP/1.1
+
+
+
+
+### แสดง course ทั้งหมด
+GET  http://localhost:8085/api/v2/course/course HTTP/1.1
+
+
+### แสดง course เฉพาะที่อาจารย์ สอน
+GET  http://51.79.251.237:8085/api/v2/course/coursel/1 HTTP/1.1
+
+### แสดง course เฉพาะที่อาจารย์ สอน
+GET  http://localhost:8085/api/v2/course/course/1 HTTP/1.1
+
+ 
+### เพิ่ม course  อาจารย์สร้าง course
+POST http://localhost:8085/api/v2/course/course HTTP/1.1
+Content-Type: application/json
+
+{
+    "class_id": 6,
+    "class_name": "โครงการ ครั่งที่ 6",
+    "teacher_id":1
+}
+
+### แก้ไข course   
+put http://localhost:8085/api/v2/course/course/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "class_name": "สวัสดีวันจันทร์",
+  "teacher_id": 1
+}
+
+### ลบ course เฉพาะที่อาจารย์ สอน
+DELETE   http://localhost:8085/api/v2/course/course/6 HTTP/1.1
+
+
+
+
+
+
+
+### add ClassEnrollment เพื่มนักศึกษาเข้าไปไหน class 
+POST http://localhost:8085/api/v2/course/classenrollment HTTP/1.1
+Content-Type: application/json
+
+{
+    "class_id": 1,
+    "student_id": 63015091
+  
+}
+### ClassEnrollment เพิ่มรายชื่อนักศักษา ใน Class arry
+POST http://localhost:8085/api/v2/course/classenrollments HTTP/1.1
+Content-Type: application/json
+
+{
+"classes":[
+{
+"class_id": 2,
+"student_id": 63015086
+},
+{
+"class_id": 2,
+"student_id": 63015091
+},
+{
+"class_id": 2,
+ "student_id": 63015097
+}
+]
+}
+
+
+
+### coursess
+GET  http://51.79.251.237:8085/api/v2/course/users HTTP/1.1
+### coursess
+GET  http://51.79.251.237:8085/api/v2/course/coursei/1 HTTP/1.1
+
+
+### Register 
+POST http://localhost:8085/api/v2/authen/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"63015144",
+    "password":"63015144",
+    "level":"teacher",
+    "email":"63015144@kmitl.ac.th",
+    "title":"นาย",
+    "firstname":"รฐนนท์",
+    "lastname":"แสงรุ่งสว่าง"
+}
+###
+POST http://localhost:8085/api/v2/authen/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"khthana@kmitl.ac.th",
+    "password":"khthana@kmitl.ac.th",
+    "level":"teacher",
+    "email":"khthana@kmitl.ac.th",
+    "title":"ผศ.",
+    "firstname":"ธนา",
+    "lastname":"หงษ์สุวรรณ"
+}
+###
+POST http://localhost:8085/api/v2/authen/register HTTP/1.1
+Content-Type: application/json
+ 
+{
+    "username":"63015121",
+    "password":"63015121",
+    "level":"student",
+    "email":"63015121@kmitl.ac.th",
+    "title":"นาย",
+    "firstname":"พศิน",
+    "lastname":"จันทรทัน"
+}
+###
+POST http://localhost:8085/api/v2/authen/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"63015117",
+    "password":"63015117",
+    "level":"student",
+    "email":"63015117@kmitl.ac.th",
+    "title":"นาย",
+    "firstname":"พชรพล",
+    "lastname":"พรมแพง"
+}
+
+
+### LOGIN T
+POST http://localhost:8085/api/v2/authen/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "63015144",
+    "password" : "63015144"
+}
+
+### LOGIN T
+POST http://51.79.251.237:8085/api/v2/authen/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "63015098",
+    "password" : "63015098"
+}
+
+### LOGIN S
+POST http://localhost:8085/api/v2/authen/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "63015117",
+    "password" : "63015117"
+}
+
+
+### LOGIN S
+POST http://localhost:8085/api/v2/authen/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "63015121",
+    "password" : "63015121"
+}
+
+
+
+### profile T
+GET http://51.79.251.237:8085/api/v2/authen/profile HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjYzMDE1MTQ0IiwiaWF0IjoxNjgwNjc0NDMwfQ.aMcy-Zix8GrXpF4wGWu90HAlkoiO4kDN5TvzeDpi0iA
+
+### profile T
+GET http://51.79.251.237:8085/api/v2/authen/profile HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjYzMDE1MDk4IiwiaWF0IjoxNjgwNjY4NDQyfQ.rRSlVz85zij2BL79ewqUQJoh7IqDjlB_Bo4T8mz3N8Y
+
+### profile S
+GET http://51.79.251.237:8085/api/v2/authen/profile HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjYzMDE1MTIxIiwibGV2ZWwiOiJzdHVkZW50IiwiaWF0IjoxNjgwNjc4ODAxfQ.AFt29j1id8I2P1QccvUaaSc6nV7B9oABLNS1Ov0S8u8
+
+
+### profile S
+GET http://localhost:8085/api/v2/authen/profile HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjYzMDE1MTIxIiwiaWF0IjoxNjgwNjY4NDc3fQ.MtzZK0kAfE2WmZ_xT7BhUUoxEx9H00GiS6PoWENr4yQ
+
+
+### Query all users
+GET http://51.79.251.237:8085/api/v2/authen/users HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjYzMDE1MTIxIiwiaWF0IjoxNjgwNjY4NDc3fQ.MtzZK0kAfE2WmZ_xT7BhUUoxEx9H00GiS6PoWENr4yQ
+
+
+
+
+

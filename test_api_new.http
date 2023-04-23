@@ -1,0 +1,399 @@
+###Test
+GET http://127.0.0.1:8085/api/v2/test/ HTTP/1.1
+
+###Test
+POST http://localhost:8085/api/v2/test/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "63015144",
+    "password" : "63015144"
+}
+ 
+
+### register Test
+POST http://localhost:8085/api/v2/authen/register HTTP/1.1
+Content-Type: application/json
+ 
+{
+    "username":"63015144",
+    "password":"63015144",
+    "level":"student",
+    "email":"63015144@kmitl.ac.th",
+    "title":"นาย",
+    "firstname":"รฐนนท์",
+    "lastname":"รฐนนท์"
+}
+
+### register Test student
+POST http://localhost:8085/api/v2/test/register HTTP/1.1
+Content-Type: application/json
+ 
+{
+    "username":"63015144",
+    "password":"63015144",
+    "level":"student",
+    "email":"63015144@kmitl.ac.th",
+    "title":"นาย",
+    "firstname":"รฐนนท์",
+    "lastname":"แสงรุ่งสว่าง"
+}
+ 
+
+### register Test teacher ||instructor 
+POST http://localhost:8085/api/v2/test/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"khthana@kmitl.ac.th",
+    "password":"khthana@kmitl.ac.th",
+    "level":"instructor",
+    "email":"khthana@kmitl.ac.th",
+    "title":"ผศ.",
+    "firstname":"ธนา",
+    "lastname":"หงษ์สุวรรณ"
+}
+
+
+### LOGIN Test Test student
+POST http://localhost:8085/api/v2/test/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "khthana@kmitl.ac.th",
+    "password" : "khthana@kmitl.ac.th"
+}
+### LOGIN Test teacher ||instructor 
+POST http://localhost:8085/api/v2/test/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "63015144",
+    "password" : "63015144"
+}
+
+### profile S
+GET http://localhost:8085/api/v2/test/profile HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjYzMDE1MTQ0IiwibGV2ZWwiOiJzdHVkZW50IiwiaWF0IjoxNjgxODM5MTY5fQ.slXbdna8OWJ-GDsn-znau8YEQgDt6EmdYbe5dMNBc4M
+
+
+### profile T
+GET http://localhost:8085/api/v2/test/profile HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtodGhhbmFAa21pdGwuYWMudGgiLCJsZXZlbCI6Imluc3RydWN0b3IiLCJpYXQiOjE2ODE4NDAxMTR9.OnciUyKTsLMnKQE4jKZjlkHnNnpolBmnnxT4NPN0R-g
+###Test dropall
+GET http://127.0.0.1:8085/api/v2/test/dropall HTTP/1.1
+###Test creattable
+GET http://127.0.0.1:8085/api/v2/test/creattable HTTP/1.1
+
+
+
+###  Query all users
+GET http://127.0.0.1:8085/api/v2/test/users HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtodGhhbmFAa21pdGwuYWMudGgiLCJsZXZlbCI6Imluc3RydWN0b3IiLCJpYXQiOjE2ODE4NDAxMTR9.OnciUyKTsLMnKQE4jKZjlkHnNnpolBmnnxT4NPN0R-g
+
+
+###  อาจารย์สร้าง courses 
+POST http://127.0.0.1:8085/api/v2/test/courses HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtodGhhbmFAa21pdGwuYWMudGgiLCJsZXZlbCI6Imluc3RydWN0b3IiLCJpYXQiOjE2ODE4NDAxMTR9.OnciUyKTsLMnKQE4jKZjlkHnNnpolBmnnxT4NPN0R-g
+Content-Type: application/json
+
+{
+    "courseName":"โครงการ ครั่งที่ 4", 
+    "instructorUsername":"khthana@kmitl.ac.th"
+}
+
+
+###  อาจารย์แก้ไข courses 
+put http://127.0.0.1:8085/api/v2/test/course/5 HTTP/1.1
+Content-Type: application/json
+
+{
+    "courseName":"โครงการ ครั่งที่ 235", 
+    "sec":53,
+    "username":"khthana@kmitl.ac.th"
+}
+
+
+
+
+
+###  อาจารย์แก้ไข courses 
+get http://127.0.0.1:8085/api/v2/test/courses/khthana@kmitl.ac.th HTTP/1.1
+ 
+
+###  อาจารย์แก้ไข courses 
+get http://127.0.0.1:8085/api/v2/test/courses/63015144 HTTP/1.1
+ 
+### enroll-student
+post http://127.0.0.1:8085/api/v2/test/enroll-student HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"โครงการ ครั่งที่ 235", 
+    "courseId":53,
+    "studentId":"khthana@kmitl.ac.th"
+}
+
+
+
+
+###Test creattable
+POST http://127.0.0.1:3000/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"โครงการ ครั่งที่ 235", 
+    "courseId":53,
+    "studentId":"khthana@kmitl.ac.th"
+}
+
+### 
+POST http://localhost:8085/api/v2/test/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"khthana@kmitl.ac.th",
+    "password":"khthana@kmitl.ac.th",
+    "level":"instructor",
+    "email":"khthana@kmitl.ac.th",
+    "title":"ผศ.",
+    "firstname":"ธนา",
+    "lastname":"หงษ์สุวรรณ"
+}
+
+### 
+POST http://localhost:8085/api/v2/test/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"chompoonuch.ji@kmitl.ac.th",
+    "password":"chompoonuch.ji@kmitl.ac.th",
+    "level":"instructor",
+    "email":"chompoonuch.ji@kmitl.ac.th",
+    "title":"ผศ. ดร.",
+    "firstname":"ชมพูนุท",
+    "lastname":" จินจาคาม"
+}
+
+
+
+### register Test student
+POST http://localhost:8085/api/v2/test/register HTTP/1.1
+Content-Type: application/json
+ 
+{
+    "username":"63015144",
+    "password":"63015144",
+    "level":"student",
+    "email":"63015144@kmitl.ac.th",
+    "title":"นาย",
+    "firstname":"รฐนนท์",
+    "lastname":"แสงรุ่งสว่าง"
+}
+
+
+### register Test student
+POST http://localhost:8085/api/v2/test/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"63015117",
+    "password":"63015117",
+    "level":"student",
+    "email":"63015117@kmitl.ac.th",
+    "title":"นาย",
+    "firstname":"พชรพล",
+    "lastname":"พรมแพง"
+}
+
+
+ 
+### LOGIN Test teacher ||instructor 
+POST http://localhost:8085/api/v2/test/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "khthana@kmitl.ac.th",
+    "password" : "khthana@kmitl.ac.th"
+}
+
+### LOGIN Test teacher ||instructor 
+POST http://localhost:8085/api/v2/test/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "63015144",
+    "password" : "63015144"
+}
+
+
+### profile S
+GET http://localhost:8085/api/v2/test/profile HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjYzMDE1MTQ0IiwiaWF0IjoxNjgwNjc0NDMwfQ.aMcy-Zix8GrXpF4wGWu90HAlkoiO4kDN5TvzeDpi0iA
+
+
+### profile T
+GET http://localhost:8085/api/v2/test/profile HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtodGhhbmFAa21pdGwuYWMudGgiLCJsZXZlbCI6Imluc3RydWN0b3IiLCJpYXQiOjE2ODIwMjExNjJ9.HgbF7idQeoEHFNhaj84QSL8SLIylo9hJVUnXt-tGkRM
+
+
+### Create the new course ||instructor 
+POST http://localhost:8085/api/v2/test/courses HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtodGhhbmFAa21pdGwuYWMudGgiLCJsZXZlbCI6Imluc3RydWN0b3IiLCJpYXQiOjE2ODIwMjExNjJ9.HgbF7idQeoEHFNhaj84QSL8SLIylo9hJVUnXt-tGkRM
+Content-Type: application/json
+
+{  
+    "name":"โครงการที่ 12",
+    "instructorId": "4"
+}
+
+### update course ||instructor 
+PUT http://localhost:8085/api/v2/test/courses/1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtodGhhbmFAa21pdGwuYWMudGgiLCJsZXZlbCI6Imluc3RydWN0b3IiLCJpYXQiOjE2ODIwMjExNjJ9.HgbF7idQeoEHFNhaj84QSL8SLIylo9hJVUnXt-tGkRM
+Content-Type: application/json
+
+{  
+    "name":"โครงการที่ 122",
+    "instructorId": "4"
+}
+
+### delete course ||instructor 
+delete http://localhost:8085/api/v2/test/courses/1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtodGhhbmFAa21pdGwuYWMudGgiLCJsZXZlbCI6Imluc3RydWN0b3IiLCJpYXQiOjE2ODIwMjExNjJ9.HgbF7idQeoEHFNhaj84QSL8SLIylo9hJVUnXt-tGkRM
+
+
+### Create the add student to course ||instructor 
+POST http://localhost:8085/api/v2/test/courses/1/students HTTP/1.1
+Content-Type: application/json
+
+{  
+   "username":"63015144"
+} 
+
+### Create the add instructor to course ||instructor 
+POST http://localhost:8085/api/v2/test/courses/1/instructors HTTP/1.1
+Content-Type: application/json
+
+{  
+    "username":"chompoonuch.ji@kmitl.ac.th"
+}
+
+ 
+### Route to get a list of students enrolled in a course
+GET http://localhost:8085/api/v2/test/courses/5/students HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtodGhhbmFAa21pdGwuYWMudGgiLCJsZXZlbCI6Imluc3RydWN0b3IiLCJpYXQiOjE2ODIwMjExNjJ9.HgbF7idQeoEHFNhaj84QSL8SLIylo9hJVUnXt-tGkRM
+
+
+### Route to get a list of instructor enrolled in a course  
+GET http://localhost:8085/api/v2/test/courses/1/instructors HTTP/1.1
+ 
+
+
+### Route to get a list of instructor enrolled in a course  
+GET http://localhost:8085/api/v2/test/courses/1/question HTTP/1.1
+ 
+
+###
+GET http://localhost:8085/api/v2/test/dropall HTTP/1.1
+###
+GET http://localhost:8085/api/v2/test/creattable HTTP/1.1
+
+### Create a new quiz with the given name and associate it with the course   ||instructor 
+POST http://localhost:8085/api/v2/test/courses/2/quizzes HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtodGhhbmFAa21pdGwuYWMudGgiLCJsZXZlbCI6Imluc3RydWN0b3IiLCJpYXQiOjE2ODIwMjExNjJ9.HgbF7idQeoEHFNhaj84QSL8SLIylo9hJVUnXt-tGkRM
+Content-Type: application/json
+
+{
+  "name": "Example Quiz 2",
+  "questions": [
+    {
+      "title": "Question 1",
+      "answers": [
+        {
+          "body": "Answer 1",
+          "isCorrect": true
+        },
+        {
+          "body": "Answer 2",
+          "isCorrect": false
+        },
+        {
+          "body": "Answer 3",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "title": "Question 2",
+      "answers": [
+        {
+          "body": "Answer 1",
+          "isCorrect": true
+        },
+        {
+          "body": "Answer 2",
+          "isCorrect": false
+        },
+        {
+          "body": "Answer 3",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}
+
+ 
+###  update 
+put http://localhost:8085/api/v2/test/courses/1/quizzes/20 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtodGhhbmFAa21pdGwuYWMudGgiLCJsZXZlbCI6Imluc3RydWN0b3IiLCJpYXQiOjE2ODIwMjExNjJ9.HgbF7idQeoEHFNhaj84QSL8SLIylo9hJVUnXt-tGkRM
+Content-Type: application/json
+
+{
+  "name": "Example Quiz 101",
+  "questions": [
+    {
+      "title": "Question 101",
+      "answers": [
+        {
+          "body": "Answer 101",
+          "isCorrect": true
+        },
+        {
+          "body": "Answer 101",
+          "isCorrect": false
+        },
+        {
+          "body": "Answer 3",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "title": "Question 101",
+      "answers": [
+        {
+          "body": "Answer 1",
+          "isCorrect": true
+        },
+        {
+          "body": "Answer 101",
+          "isCorrect": true
+        },
+        {
+          "body": "Answer 3",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}
+
+###  Delete Quiz: Allow instructors to delete a quiz
+Delete http://localhost:8085/api/v2/test/courses/1/quizzes/22 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtodGhhbmFAa21pdGwuYWMudGgiLCJsZXZlbCI6Imluc3RydWN0b3IiLCJpYXQiOjE2ODIwMjExNjJ9.HgbF7idQeoEHFNhaj84QSL8SLIylo9hJVUnXt-tGkRM
+
+### Define a route to get a list of quizzes
+GET http://localhost:8085/api/v2/test/courses/5/question HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtodGhhbmFAa21pdGwuYWMudGgiLCJsZXZlbCI6Imluc3RydWN0b3IiLCJpYXQiOjE2ODIwMjExNjJ9.HgbF7idQeoEHFNhaj84QSL8SLIylo9hJVUnXt-tGkRM
+
